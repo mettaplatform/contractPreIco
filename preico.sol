@@ -279,7 +279,7 @@ contract MettaCrowdsale is Ownable {
 		// preICO period is 20 of november - 19 of december
 		period = 29; // 29  
 		// minimum attracted ETH during preICO - 409
-		softcap = 409 * 1 ether;//409 * 1 ether; //0.00044 for test
+		softcap = 409 * 1 ether;
 		// maximum number mettacoins for preICO
 		availableTokensforPreICO = 8895539 * 1 ether;
 		// current ETH balance of preICO
@@ -291,14 +291,14 @@ contract MettaCrowdsale is Ownable {
 		
 		//data of manager of company
 		managerETHaddress = 0x0;   
-		managerETHbonus = 35 * 1 ether; //35 ETH ~ 1,4 BTC // 35 * 1 ether;
+		managerETHbonus = 35 * 1 ether; //35 ETH ~ 1,4 BTC 
 
     }
     /**
 	 * @dev Initially safe sets preICO manager address
 	 */
     function setPreIcoManager(address _addr) public onlyOwner {   
-        require(managerETHaddress == 0x0) ;//ony once
+        require(managerETHaddress == 0x0) ;//only once
 			managerETHcandidatAddress = _addr;
         
     }
@@ -430,8 +430,16 @@ contract MettaCrowdsale is Ownable {
     			     }
     			}
     		} else {
-    			// there are not sufficient number of tokens - return of ETH
-    			msg.sender.transfer(msg.value);
+    			// changes to buyer
+    
+    	    	uint availabeTokensToSale = availableTokensforPreICO.sub(countOfSaleTokens);
+    			countOfSaleTokens = countOfSaleTokens.add(availabeTokensToSale); 
+    			token.transfer(msg.sender, availabeTokensToSale);
+    			
+    			uint changes = msg.value.sub(availabeTokensToSale.mul(rate).div(1 ether));
+    			balances[msg.sender] = balances[msg.sender].add(msg.value.sub(changes));
+    			currentPreICObalance = currentPreICObalance.add(msg.value.sub(changes));
+    			msg.sender.transfer(changes);
     		}
     }
 
