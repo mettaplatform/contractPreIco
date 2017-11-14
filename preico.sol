@@ -272,7 +272,7 @@ contract MettaCrowdsale is Ownable {
    
     function MettaCrowdsale() {
      
-		// 1 METTACOIN = 0.00022 ETH
+		// 1 METTACOIN = 0.00027 ETH
 		rate = 270000000000000; 
 		//Mon, 20 Nov 2017 00:00:00 GMT
 		start = 1511136000;
