@@ -276,8 +276,8 @@ contract MettaCrowdsale is Ownable {
 		rate = 270000000000000; 
 		//Mon, 20 Nov 2017 00:00:00 GMT
 		start = 1511136000;
-		// preICO period is 20 of november - 19 of december
-		period = 29; // 29  
+		// preICO period is 20 of november - 19 of december (include 19)
+		period = 30; //  
 		// minimum attracted ETH during preICO - 409
 		softcap = 409 * 1 ether;
 		// maximum number mettacoins for preICO
