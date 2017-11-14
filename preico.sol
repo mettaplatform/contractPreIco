@@ -273,7 +273,7 @@ contract MettaCrowdsale is Ownable {
     function MettaCrowdsale() {
      
 		// 1 METTACOIN = 0.00022 ETH
-		rate = 220000000000000; 
+		rate = 270000000000000; 
 		//Mon, 20 Nov 2017 00:00:00 GMT
 		start = 1511136000;
 		// preICO period is 20 of november - 19 of december
