@@ -291,7 +291,7 @@ contract MettaCrowdsale is Ownable {
 		
 		//data of manager of company
 		managerETHaddress = 0x0;   
-		managerETHbonus = 35 * 1 ether; //35 ETH ~ 1,4 BTC 
+		managerETHbonus = 27 * 1 ether;  
 
     }
     /**
